@@ -34,6 +34,8 @@ BOARD_CAMERA_SENSORS := \
     ov5648_q5v22e_rendang \
     gc2355_rendang
 
+TARGET_USES_AOSP := true
+
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/cameraserver=22 \
     /system/bin/mediaserver=22 \
