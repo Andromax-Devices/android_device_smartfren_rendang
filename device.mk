@@ -190,6 +190,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
     camera.device@1.0-impl \
+    camera.msm8916 \
     Snap
 
 # Screen Recorder
