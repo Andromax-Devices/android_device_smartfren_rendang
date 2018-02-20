@@ -55,7 +55,7 @@ endif
 WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 
 # Extended filesystem support
-TARGET_KERNEL_HAVE_EXFAT := true
+TARGET_EXFAT_DRIVER := exfat
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
