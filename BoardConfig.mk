@@ -39,14 +39,6 @@ TARGET_USES_AOSP := true
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
-# Dexpreopt
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-
 # Display
 TARGET_SCREEN_DENSITY := 240
 
