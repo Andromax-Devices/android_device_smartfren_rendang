@@ -22,6 +22,7 @@ LOCAL_CFLAGS += -Wall -Wextra -Werror
 #use media extension
 #ifeq ($(TARGET_USES_MEDIA_EXTENSIONS), true)
 LOCAL_CFLAGS += -DUSE_MEDIA_EXTENSIONS
+LOCAL_CFLAGS += -Wno-unused-variable -Wno-unused-parameter -Wno-implicit-fallthrough
 #endif
 
 #Debug logs are enabled
