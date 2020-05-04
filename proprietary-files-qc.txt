@@ -20,6 +20,8 @@ vendor/lib/libmmcamera_faceproc.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_hdr_lib.so
 vendor/lib/libmmcamera_imglib.so
+vendor/lib/libmmcamera_pdaf.so
+vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_wavelet_lib.so
@@ -31,30 +33,99 @@ vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegenc.so
 
 # Camera actuator
-vendor/lib/libactuator_dw9718s.so
-vendor/lib/libactuator_dw9718s_2gong.so
-vendor/lib/libactuator_dw9718s_2gong_camcorder.so
-vendor/lib/libactuator_dw9718s_2gong_camera.so
-vendor/lib/libactuator_dw9718s_camcorder.so
-vendor/lib/libactuator_dw9718s_camera.so
+vendor/lib/libactuator_a3907.so
+vendor/lib/libactuator_a3907_camcorder.so
+vendor/lib/libactuator_a3907_camera.so
+vendor/lib/libactuator_dw9714.so
+vendor/lib/libactuator_dw9714_13p1ba.so
+vendor/lib/libactuator_dw9714_13p1ba_camcorder.so
+vendor/lib/libactuator_dw9714_camcorder.so
+vendor/lib/libactuator_dw9714_camera.so
+vendor/lib/libactuator_dw9714_ov5648.so
+vendor/lib/libactuator_dw9714_ov5648_camcorder.so
+vendor/lib/libactuator_dw9714_ov5648_camera.so
+vendor/lib/libactuator_dw9714_q13n04a.so
+vendor/lib/libactuator_dw9714_q13n04a_camcorder.so
+vendor/lib/libactuator_dw9714_q13n04a_camera.so
+vendor/lib/libactuator_dw9714_q13v04b.so
+vendor/lib/libactuator_dw9714_q13v04b_camcorder.so
+vendor/lib/libactuator_dw9714_q13v04b_camera.so
+vendor/lib/libactuator_dw9716.so
+vendor/lib/libactuator_dw9716_camcorder.so
+vendor/lib/libactuator_dw9716_camera.so
+vendor/lib/libactuator_iu074.so
+vendor/lib/libactuator_iu074_camcorder.so
+vendor/lib/libactuator_iu074_camera.so
+vendor/lib/libactuator_ov8825.so
+vendor/lib/libactuator_ov8825_camcorder.so
+vendor/lib/libactuator_ov8825_camera.so
+vendor/lib/libactuator_ov12830.so
+vendor/lib/libactuator_ov12830_camcorder.so
+vendor/lib/libactuator_ov12830_camera.so
+vendor/lib/libactuator_rohm_bu64243gwz.so
+vendor/lib/libactuator_rohm_bu64243gwz_camcorder.so
+vendor/lib/libactuator_rohm_bu64243gwz_camera.so
 
 # Camera chromatix
-vendor/lib/libchromatix_gc2355_8916_common.so
-vendor/lib/libchromatix_gc2355_8916_default_video.so
-vendor/lib/libchromatix_gc2355_8916_preview.so
-vendor/lib/libchromatix_imx219_2gong_common.so
-vendor/lib/libchromatix_imx219_2gong_default_video.so
-vendor/lib/libchromatix_imx219_2gong_liveshot.so
-vendor/lib/libchromatix_imx219_2gong_preview.so
-vendor/lib/libchromatix_imx219_2gong_snapshot.so
-vendor/lib/libchromatix_imx219_q8n13a_common.so
-vendor/lib/libchromatix_imx219_q8n13a_default_video.so
-vendor/lib/libchromatix_imx219_q8n13a_liveshot.so
-vendor/lib/libchromatix_imx219_q8n13a_preview.so
-vendor/lib/libchromatix_imx219_q8n13a_snapshot.so
+vendor/lib/libchromatix_gc2355_common.so
+vendor/lib/libchromatix_gc2355_preview.so
+vendor/lib/libchromatix_ov5648_q5v22e_common.so
+vendor/lib/libchromatix_ov5648_q5v22e_default_video.so
+vendor/lib/libchromatix_ov5648_q5v22e_default_video_hd.so
+vendor/lib/libchromatix_ov5648_q5v22e_preview.so
+vendor/lib/libchromatix_ov5648_q5v22e_snapshot.so
+vendor/lib/libchromatix_ov5648_q5v22e_zsl.so
+vendor/lib/libchromatix_ov5670_q5v41b_common.so
+vendor/lib/libchromatix_ov5670_q5v41b_default_video.so
+vendor/lib/libchromatix_ov5670_q5v41b_hfr_60fps.so
+vendor/lib/libchromatix_ov5670_q5v41b_hfr_90fps.so
+vendor/lib/libchromatix_ov5670_q5v41b_hfr_120fps.so
+vendor/lib/libchromatix_ov5670_q5v41b_liveshot.so
+vendor/lib/libchromatix_ov5670_q5v41b_preview.so
+vendor/lib/libchromatix_ov5670_q5v41b_snapshot.so
+vendor/lib/libchromatix_ov5670_q5v41b_video_hd.so
+vendor/lib/libchromatix_ov5670_q5v41b_zsl.so
+vendor/lib/libchromatix_s5k5e2_common.so
+vendor/lib/libchromatix_s5k5e2_default_video.so
+vendor/lib/libchromatix_s5k5e2_preview.so
+vendor/lib/libchromatix_s5k5e2_snapshot.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_common.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_default_video.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_hfr_60fps.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_hfr_90fps.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_hfr_120fps.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_liveshot.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_preview.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_snapshot.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_video_hd.so
+vendor/lib/libchromatix_S5K4E1_13P1BA_zsl.so
+vendor/lib/libchromatix_skuab_shinetech_gc0339_common.so
+vendor/lib/libchromatix_skuab_shinetech_gc0339_default_video.so
+vendor/lib/libchromatix_skuab_shinetech_gc0339_liveshot.so
+vendor/lib/libchromatix_skuab_shinetech_gc0339_preview.so
+vendor/lib/libchromatix_skuab_shinetech_gc0339_snapshot.so
+vendor/lib/libchromatix_skuab_shinetech_gc0339_zsl.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_common.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_default_video.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_hfr_60fps.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_hfr_90fps.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_hfr_120fps.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_liveshot.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_preview.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_snapshot.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_video_hd.so
+vendor/lib/libchromatix_SKUAB_ST_s5k4e1_zsl.so
 
 # Camera eeprom
-vendor/lib/libmmcamera_sony_imx219_eeprom.so
+vendor/lib/libmmcamera_ofilm_oty5f03_eeprom.so
+vendor/lib/libmmcamera_sonyimx135_eeprom.so
+vendor/lib/libmmcamera_sunny_p5v23c_eeprom.so
+vendor/lib/libmmcamera_sunny_p12v01m_eeprom.so
+vendor/lib/libmmcamera_sunny_q5v22e_eeprom.so
+vendor/lib/libmmcamera_sunny_q5v41b_eeprom.so
+vendor/lib/libmmcamera_sunny_q8v18a_eeprom.so
+vendor/lib/libmmcamera_sunny_q13v04b_eeprom.so
+vendor/lib/libmmcamera_truly_cm7700_eeprom.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -63,8 +134,19 @@ etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
 
 # Camera sensors
-vendor/lib/libmmcamera_gc2355_8916.so
-vendor/lib/libmmcamera_imx219_q8n13a.so
+vendor/lib/libmmcamera_gc2355.so
+vendor/lib/libmmcamera_mt9m114.so
+vendor/lib/libmmcamera_ov5648_q5v22e.so
+vendor/lib/libmmcamera_ov5670_q5v41b.so
+vendor/lib/libmmcamera_s5k3l1yx.so
+vendor/lib/libmmcamera_s5k5e2.so
+vendor/lib/libmmcamera_S5K4E1_13P1BA.so
+vendor/lib/libmmcamera_SKUAA_ST_gc0339.so
+vendor/lib/libmmcamera_skuab_shinetech_gc0339.so
+vendor/lib/libmmcamera_SKUAB_ST_s5k4e1.so
+vendor/lib/libmmcamera_skuf_ov5648_p5v23c.so
+vendor/lib/libmmcamera_skuf_ov12830_p12v01c.so
+vendor/lib/libmmcamera_sp1628.so
 
 # ADSP - from crackling
 bin/adsprpcd|95030b23730f77beecd74338e9f997e7b853e7a5
