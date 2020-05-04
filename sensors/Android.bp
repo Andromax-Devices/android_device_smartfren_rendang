@@ -1,5 +1,5 @@
 cc_library_static {
-    name: "multihal-lenovo",
+    name: "multihal-haier",
     vendor: true,
     srcs: [
         "multihal.cpp",

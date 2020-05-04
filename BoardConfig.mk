@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PLATFORM_PATH := device/lenovo/a6000
+PLATFORM_PATH := device/smartfren/rendang
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
@@ -39,10 +39,10 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_SOURCE := kernel/lenovo/a6000
+TARGET_KERNEL_SOURCE := kernel/andromax/msm8916
 KERNEL_TOOLCHAIN := $(OUT_DIR)/../prebuilts/gcc/$(HOST_OS)-x86/arm/linaro/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
-TARGET_KERNEL_CONFIG := lineageos_a6000_defconfig
+TARGET_KERNEL_CONFIG := lineageos_rendang_defconfig
 
 # File System
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -174,4 +174,4 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Proprietary Prebuilt
--include vendor/lenovo/a6000/BoardConfigVendor.mk
+-include vendor/smartfren/rendang/BoardConfigVendor.mk

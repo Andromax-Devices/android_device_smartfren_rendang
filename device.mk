@@ -15,12 +15,12 @@
 #
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 
 # AAPT CONFIG
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Display
 PRODUCT_PACKAGES += \
@@ -64,7 +64,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Screen density
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=280 \
+    ro.sf.lcd_density=220 \
     persist.graphics.vulkan.disable=true
 
 # Disable buffer age
@@ -339,7 +339,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.a6000
+    android.hardware.light@2.0-service.rendang
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -495,4 +495,4 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.usb.id.ums_adb=2285 \
     ro.usb.vid=2970
 
-$(call inherit-product, vendor/lenovo/a6000/a6000-vendor.mk)
+$(call inherit-product, vendor/smartfren/rendang/rendang-vendor.mk)

@@ -15,40 +15,33 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-$(call inherit-product, device/lenovo/a6000/device.mk)
-
-# Inherit aicp specific configuration
-$(call inherit-product, $(TOPDIR)vendor/aicp/config/common_full_phone.mk)
+$(call inherit-product, device/smartfren/rendang/device.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Kraft-T,a6000,K30-T,A6000,Kraft-W,Kraft-C,k30t,msm8916,Kraft-A6000,wt86518
+TARGET_OTA_ASSERT_DEVICE := Andromax Q, rendang, Rendang, g36c1h, G36C1H, omni_rendang
 
-TARGET_VENDOR := Lenovo
-PRODUCT_DEVICE := a6000
-PRODUCT_NAME := aicp_a6000
-BOARD_VENDOR := Lenovo
-PRODUCT_BRAND := Lenovo
-PRODUCT_MODEL := A6000
-PRODUCT_MANUFACTURER := Lenovo
-
-# AICP Device Maintainers
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    DEVICE_MAINTAINERS="dev_harsh1998"
-
-# Device Identifiers
-PRODUCT_BUILD_PROP_OVERRIDES += \
-     PRODUCT_MODEL="Lenovo A6000" \
-     PRODUCT_NAME="Kraft-A6000" \
-     PRODUCT_DEVICE="Kraft-A6000"
-
-PRODUCT_PROPERTY_OVERRIDES += \
-     ro.build.product=Kraft-A6000
+TARGET_VENDOR := Smartfren
+PRODUCT_DEVICE := rendang
+PRODUCT_NAME := aicp_rendang
+BOARD_VENDOR := Smartfren
+PRODUCT_BRAND := Smartfren
+PRODUCT_MODEL := Andromax Q - G36C1H
+PRODUCT_MANUFACTURER := Smartfren
 
 # Build fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="Kraft-A6000-user 5.0.2 LRX22G Kraft-A6000_S061_160727 release-keys"
 
 BUILD_FINGERPRINT := Lenovo/Kraft-A6000/Kraft-A6000:5.0.2/LRX22G/Kraft-A6000_S061_160727:user/release-keys
+
+# GMS
+PRODUCT_GMS_CLIENTID_BASE := android-haier
+
+# Animation
+PRODUCT_COPY_FILES += device/smartfren/rendang/bootanimation.zip:system/media/bootanimation.zip
+
+# APN(s)
+PRODUCT_COPY_FILES += device/smartfren/rendang/apns-conf.xml:system/etc/apns-conf.xml
