@@ -17,8 +17,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, device/smartfren/rendang/device.mk)
 
-# Inherit aicp specific configuration
-$(call inherit-product, $(TOPDIR)vendor/aicp/config/common_full_phone.mk)
+# Inherit Aosip specific configuration
+$(call inherit-product, $(TOPDIR)vendor/aosip/config/common_full_phone.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
@@ -28,7 +28,7 @@ TARGET_OTA_ASSERT_DEVICE := Andromax Q, rendang, Rendang, g36c1h, G36C1H, omni_r
 
 TARGET_VENDOR := Smartfren
 PRODUCT_DEVICE := rendang
-PRODUCT_NAME := aicp_rendang
+PRODUCT_NAME := aosip_rendang
 BOARD_VENDOR := Smartfren
 PRODUCT_BRAND := Smartfren
 PRODUCT_MODEL := Andromax Q - G36C1H
@@ -36,6 +36,6 @@ PRODUCT_MANUFACTURER := Smartfren
 
 # Build fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="Kraft-A6000-user 5.0.2 LRX22G Kraft-A6000_S061_160727 release-keys"
+    PRIVATE_BUILD_DESC="msm8939_x6_6171e_32-user 5.1.1 LMY47V eng.root.20160826 test-keys"
 
-BUILD_FINGERPRINT := Lenovo/Kraft-A6000/Kraft-A6000:5.0.2/LRX22G/Kraft-A6000_S061_160727:user/release-keys
+BUILD_FINGERPRINT := Smartfren/G36C1H/G36C1H:5.1.1/LMY48B/YOG4PAS42M:user/release-keys
