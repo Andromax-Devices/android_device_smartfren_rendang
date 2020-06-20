@@ -594,6 +594,11 @@ PRODUCT_PACKAGES += \
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+
+# Thermal
+PRODUCT_PACKAGES += \
+    $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl.msm8916 \
