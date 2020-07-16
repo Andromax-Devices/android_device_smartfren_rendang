@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.a6000"
+#define LOG_TAG "android.hardware.light@2.0-service.rendang"
 
 /* dev-harsh1998: set page size to 32Kb for our hal */
 #include <hwbinder/ProcessState.h>
@@ -37,7 +37,7 @@ using android::status_t;
 #define DEFAULT_LGTHAL_HW_BINDER_SIZE_KB 32
 size_t getHWBinderMmapSize() {
     size_t value = 0;
-    value = property_get_int32("persist.vendor.a6000.lighthal.hw.binder.size", DEFAULT_LGTHAL_HW_BINDER_SIZE_KB);
+    value = property_get_int32("persist.vendor.rendang.lighthal.hw.binder.size", DEFAULT_LGTHAL_HW_BINDER_SIZE_KB);
     if (!value) value = DEFAULT_LGTHAL_HW_BINDER_SIZE_KB; // deafult to 1 page of 32 Kb
      return 1024 * value;
 }

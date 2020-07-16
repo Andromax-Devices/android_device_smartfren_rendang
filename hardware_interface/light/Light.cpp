@@ -16,7 +16,7 @@
  
 //Author := dev_harsh1998
  
-#define LOG_TAG "LightService-a6000"
+#define LOG_TAG "LightService-rendang"
 #include <log/log.h>
 #include "Light.h"
 #include <fstream>
