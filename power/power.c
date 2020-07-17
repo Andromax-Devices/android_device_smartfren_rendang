@@ -25,8 +25,6 @@
 
 #include <utils/Log.h>
 
-#define TAP_TO_WAKE_NODE "/sys/android_touch/doubletap2wake"
-
 static pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 static int sysfs_write_str(char *path, char *s)
@@ -67,16 +65,6 @@ static void power_init(__attribute__((unused)) struct power_module *module)
     ALOGI("%s", __func__);
 }
 
-static void set_feature(struct power_module *module __unused,
-                feature_t feature, int state)
-{
-    char tmp_str[64];
-    if (feature == POWER_FEATURE_DOUBLE_TAP_TO_WAKE) {
-        snprintf(tmp_str, 64, "%d", state);
-        sysfs_write_str(TAP_TO_WAKE_NODE, tmp_str);
-    }
-}
-
 static int power_open(const hw_module_t* module, const char* name,
                     hw_device_t** device)
 {
@@ -99,7 +87,6 @@ static int power_open(const hw_module_t* module, const char* name,
     dev->common.hal_api_version = HARDWARE_HAL_API_VERSION;
 
     dev->init = power_init;
-    dev->setFeature = set_feature;
     *device = (hw_device_t*)dev;
 
     ALOGD("%s: exit", __FUNCTION__);
@@ -123,6 +110,5 @@ struct power_module HAL_MODULE_INFO_SYM = {
     },
 
     .init = power_init,
-    .setFeature = set_feature
 
 };
