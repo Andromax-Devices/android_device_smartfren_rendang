@@ -33,7 +33,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <sys/sysinfo.h>
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/properties.h>
@@ -80,16 +79,8 @@ static void init_alarm_boot_properties()
     }
 }
 
-int is2GB()
+static void dexoptSettings()
 {
-    struct sysinfo sys;
-    sysinfo(&sys);
-    return sys.totalram > 1024ull * 1024 * 1024;
-}
-
-void vendor_load_properties()
-{
-
   // pm dexopt settings
   property_set("pm.dexopt.install", "quicken");
   property_set("pm.dexopt.shared", "quicken");
@@ -102,22 +93,13 @@ void vendor_load_properties()
   property_set("dalvik.vm.heapstartsize", "16m");
   property_set("dalvik.vm.heapgrowthlimit", "192m");
   property_set("ro.config.max_starting_bg", "2");
+  property_set("dalvik.vm.heapsize", "256m");
+  property_set("ro.vendor.qti.sys.fw.bg_apps_limit", "8");
+}
 
-  if (is2GB())
-  {
-	   property_set("dalvik.vm.heapsize", "512m");
-
-	   // Cached apps limit
-	   property_set("ro.vendor.qti.sys.fw.bg_apps_limit", "16");
-  }
-  else
-  {
-	   property_set("dalvik.vm.heapsize", "256m");
-
-	   // Cached apps limit
-	   property_set("ro.vendor.qti.sys.fw.bg_apps_limit", "8");
-  }
-
+void vendor_load_properties()
+{
+  dexoptSettings();
   init_alarm_boot_properties();
 }
 
