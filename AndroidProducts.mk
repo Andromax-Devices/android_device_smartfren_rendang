@@ -1,6 +1,6 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_rendang.mk
+    $(LOCAL_DIR)/ancient_rendang.mk
 
 # Lunch choices
 COMMON_LUNCH_CHOICES := \
-    lineage_rendang-userdebug
+    ancient_rendang-userdebug

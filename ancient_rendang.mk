@@ -16,17 +16,21 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/smartfren/rendang/device.mk)
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/ancient/config/common_full_phone.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
 # Assert
-# TARGET_OTA_ASSERT_DEVICE := Kraft-T,a6000,K30-T,A6000,Kraft-W,Kraft-C,k30t,msm8916,Kraft-A6000,wt86518
+TARGET_OTA_ASSERT_DEVICE := rendang,G36C1H,omni_rendang
+
+WITH_GAPPS := true
+TARGET_GAPPS_ARCH := arm
+IS_PHONE := true
 
 TARGET_VENDOR := Smartfren
 PRODUCT_DEVICE := rendang
-PRODUCT_NAME := lineage_rendang
+PRODUCT_NAME := ancient_rendang
 BOARD_VENDOR := Smartfren
 PRODUCT_BRAND := Smartfren
 PRODUCT_MODEL := Andromax Q - G36C1H
