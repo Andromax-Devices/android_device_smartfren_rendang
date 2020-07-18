@@ -50,7 +50,7 @@ on init
     write /sys/module/zswap/parameters/compressor lz4
     write /sys/module/zswap/parameters/zpool zsmalloc
     write /sys/module/zswap/parameters/max_pool_percent 35
-    write /sys/module/zswap/parameters/enabled 1
+    write /sys/module/zswap/parameters/enabled 0
 
     # add a cpuset for the camera daemon
     # we want all the cores for camera
@@ -86,7 +86,7 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance
 on post-fs
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
     write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 35
+    write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/dirty_background_ratio 20
     write /proc/sys/vm/dirty_expire_centisecs 200
     write /proc/sys/vm/dirty_ratio 40
@@ -117,6 +117,7 @@ on fs
     write /sys/block/mmcblk1/queue/iostats 0
     write /sys/block/mmcblk0/queue/read_ahead_kb 2048
     write /sys/block/mmcblk0/queue/scheduler deadline
+    swapon_all /vendor/etc/fstab.qcom
 
 on property:sys.boot_completed=1
     write /sys/module/process_reclaim/parameters/enable_process_reclaim 1

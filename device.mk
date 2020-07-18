@@ -415,14 +415,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
-# Baseband Fix
-PRODUCT_PACKAGES += \
-    set_baseband.sh
-
-# zRam
-PRODUCT_PACKAGES += \
-    set_zram.sh
-
 # Reduce post boot lags
 PRODUCT_PACKAGES += \
     init.boot_boost.sh

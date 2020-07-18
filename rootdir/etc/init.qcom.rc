@@ -226,16 +226,6 @@ service set_zram /vendor/bin/sh /system/vendor/bin/set_zram.sh
     group system
     oneshot
 
-service set_baseband /vendor/bin/sh /system/vendor/bin/set_baseband.sh
-    class late_start
-    disabled
-    user system
-    group shell
-    oneshot
-
-on property:gsm.version.baseband=""
-    start set_baseband
-
 service charger /system/bin/charger
     class charger
     user system
@@ -287,7 +277,5 @@ on property:init.svc.surfaceflinger=restarting
 
 # Start it again on boot, just being double sure.
 on property:sys.boot_completed=1
-    start set_baseband
-    start set_zram
     restart vendor.camera-provider-2-4
     restart cameraserver
