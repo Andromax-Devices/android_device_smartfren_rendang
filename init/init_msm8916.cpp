@@ -94,7 +94,7 @@ static void dexoptSettings()
   property_set("dalvik.vm.heapgrowthlimit", "192m");
   property_set("ro.config.max_starting_bg", "2");
   property_set("dalvik.vm.heapsize", "256m");
-  property_set("ro.vendor.qti.sys.fw.bg_apps_limit", "8");
+  property_set("ro.vendor.qti.sys.fw.bg_apps_limit", "6");
 }
 
 void vendor_load_properties()
