@@ -198,6 +198,10 @@ TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 SELINUX_IGNORE_NEVERALLOWS := true
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib/hw/camera.vendor.msm8916.so|libshims_camera.so
+
 # SEpolicy
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
