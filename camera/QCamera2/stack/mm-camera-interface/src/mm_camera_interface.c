@@ -1528,14 +1528,14 @@ uint8_t get_num_of_cameras()
             struct media_entity_desc entity;
             memset(&entity, 0, sizeof(entity));
             entity.id = num_entities++;
-            CDBG("entity id %d", entity.id);
+            CDBG_ERROR("entity id %d", entity.id);
             rc = ioctl(dev_fd, MEDIA_IOC_ENUM_ENTITIES, &entity);
             if (rc < 0) {
-                CDBG("Done enumerating media entities");
+                CDBG_ERROR("Done enumerating media entities");
                 rc = 0;
                 break;
             }
-            CDBG("entity name %s type %d group id %d",
+            CDBG_ERROR("entity name %s type %d group id %d",
                 entity.name, entity.type, entity.group_id);
             if (entity.type == MEDIA_ENT_T_V4L2_SUBDEV &&
                 entity.group_id == MSM_CAMERA_SUBDEV_SENSOR_INIT) {
