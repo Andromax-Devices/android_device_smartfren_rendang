@@ -1,3 +1,7 @@
+on boot
+    chown system system /sys/class/leds/button-backlight/brightness
+    chmod 0660 /sys/class/leds/button-backlight/brightness
+
 service light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.rendang
     interface android.hardware.light@2.0::ILight default
     class hal
