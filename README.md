@@ -12,7 +12,7 @@ RAM     | 1GB
 Shipped Android Version | 5.0.2 CyanogenOS
 Latest Stock Update version | 5.1.1 AOSP
 Ext-Storage | Expandable upto 64GB
-Battery | 200 mAh
+Battery | 2000 mAh
 Display | 480 x 854 pixels, 4.0"  (~240 ppi pixel density)
 Rear Camera  | 5 MP, autofocus, Omnivision ov5670_q5v41b
 Front Camera | 2.0 MP, GalaxyCore
