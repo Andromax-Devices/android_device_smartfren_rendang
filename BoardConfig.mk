@@ -69,10 +69,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # GPS
 TARGET_NO_RPC := true
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_rendang
-TARGET_RECOVERY_DEVICE_MODULES := libinit_rendang
-
 # Kernel
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_IMAGE_NAME := Image
