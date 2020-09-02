@@ -13,7 +13,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
+    ro.sf.lcd_density=240
 
 # Factory Reset Protection
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -25,7 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.target=dpm1 \
+    persist.data.target=dpm4 \
     persist.data.qmi.adb_logmask=0 \
     persist.radio.multisim.config=dsds \
     persist.radio.custom_ecc=1 \
