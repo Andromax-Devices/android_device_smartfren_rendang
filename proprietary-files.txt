@@ -14,6 +14,9 @@ vendor/lib/soundfx/libqcbassboost.so|8ed65760940653ada21d72cd5fb7b66174cbc422
 vendor/lib/soundfx/libqcreverb.so|725ce9f7d696dae58da423f33dbbf2abcf16b9ac
 vendor/lib/soundfx/libqcvirt.so|5393f3a58247619413f35b7550d48e7cc0bd39d5
 
+# Battery
+bin/vm_bms:vendor/bin/vm_bms
+
 # Bluetooth - from jalebi
 bin/btnvtool:vendor/bin/btnvtool|2a673ba673797ecdce19617eb260b791f317eff9
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init|717a6d532ad9454d86be81c9ca8079711f2cc628
