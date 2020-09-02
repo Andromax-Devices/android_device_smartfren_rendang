@@ -17,6 +17,6 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Redmi 2"
+#define BTM_DEF_LOCAL_NAME   "Andromax G36C1H"
 #define BLUETOOTH_QTI_SW TRUE
 #endif

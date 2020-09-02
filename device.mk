@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/wingtech/wt88047/wt88047-vendor.mk)
+$(call inherit-product, vendor/smartfren/rendang/rendang-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
@@ -47,8 +47,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 854
+TARGET_SCREEN_WIDTH := 480
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Camera
@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
     calmodule.cfg \
     libcalmodule_common \
     sensors.msm8916 \
-    sensors.wt88047
+    sensors.rendang
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
@@ -129,7 +129,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SHIPPING_API_LEVEL := 19
 
 # System Properties
-$(call inherit-product, device/wingtech/wt88047/system_prop.mk)
+$(call inherit-product, device/smartfren/rendang/system_prop.mk)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
@@ -140,7 +140,7 @@ PRODUCT_COPY_FILES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.wt88047
+    vendor.lineage.touch@1.0-service.rendang
 
 # USB ID
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \

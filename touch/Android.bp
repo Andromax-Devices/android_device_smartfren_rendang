@@ -1,8 +1,8 @@
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.wt88047",
+    name: "vendor.lineage.touch@1.0-service.rendang",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
-    init_rc: ["vendor.lineage.touch@1.0-service.wt88047.rc"],
+    init_rc: ["vendor.lineage.touch@1.0-service.rendang.rc"],
     srcs: ["service.cpp", "KeyDisabler.cpp"],
     shared_libs: [
         "libbase",

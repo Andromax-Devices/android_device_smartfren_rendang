@@ -20,10 +20,13 @@ FORCE_32_BIT := true
 # Inherit from msm8916-common
 include device/cyanogen/msm8916-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/wingtech/wt88047
+DEVICE_PATH := device/smartfren/rendang
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := MSM8916_X6_6171E
 
 # Camera
 BOARD_CAMERA_SENSORS := ov2680_5987fhq ov8865_q8v18a ov2680_skuhf
@@ -70,15 +73,15 @@ TARGET_NO_RPC := true
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_wt88047
-TARGET_RECOVERY_DEVICE_MODULES := libinit_wt88047
+TARGET_INIT_VENDOR_LIB := libinit_rendang
+TARGET_RECOVERY_DEVICE_MODULES := libinit_rendang
 
 # Kernel
 BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DT := true
-TARGET_KERNEL_SOURCE := kernel/wingtech/msm8916
-TARGET_KERNEL_CONFIG := lineageos_wt88047_defconfig
+TARGET_KERNEL_SOURCE := kernel/smartfren/msm8916
+TARGET_KERNEL_CONFIG := lineageos_rendang_defconfig
 BOARD_KERNEL_CMDLINE += phy-msm-usb.floated_charger_enable=1
 
 # Power
@@ -97,4 +100,4 @@ TARGET_LD_SHIM_LIBS += \
     /vendor/lib/libmmcamera2_imglib_modules.so|libshim_camera.so
 
 # inherit from the proprietary version
-include vendor/wingtech/wt88047/BoardConfigVendor.mk
+include vendor/smartfren/rendang/BoardConfigVendor.mk
