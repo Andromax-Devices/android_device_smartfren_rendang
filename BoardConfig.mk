@@ -25,6 +25,9 @@ DEVICE_PATH := device/smartfren/rendang
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
+# Broken Rules
+BUILD_BROKEN_DUP_RULES := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916_X6_6171E
 
