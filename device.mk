@@ -118,9 +118,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     calmodule.cfg \
-    libcalmodule_common \
-    sensors.msm8916 \
-    sensors.rendang
+    sensors.msm8916
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/_hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/_hals.conf
