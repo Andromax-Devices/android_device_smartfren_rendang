@@ -15,8 +15,8 @@
 
 $(call inherit-product, device/smartfren/rendang/full_rendang.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_mini_phone.mk)
+# Inherit some common Nusantara stuff.
+$(call inherit-product, vendor/nusantara/config/common_full_phone.mk)
 
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
@@ -24,7 +24,10 @@ TARGET_BOARD_PLATFORM_VARIANT := msm8916
 # Assert
 TARGET_OTA_ASSERT_DEVICE := G36C1H,rendang
 
-PRODUCT_NAME := lineage_rendang
+# Nusantara Properties
+TARGET_BOOT_ANIMATION_RES := 720
+
+PRODUCT_NAME := nad_rendang
 BOARD_VENDOR := smartfren
 PRODUCT_DEVICE := rendang
 
