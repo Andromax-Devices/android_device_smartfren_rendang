@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *		http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_GYRO_SENSOR_H
-#define ANDROID_GYRO_SENSOR_H
+#ifndef ANDROID_AKM_SENSOR_H
+#define ANDROID_AKM_SENSOR_H
 
 #include <stdint.h>
 #include <errno.h>
@@ -24,34 +24,38 @@
 
 #include "SensorBase.h"
 #include "InputEventReader.h"
-#include "NativeSensorManager.h"
 
 /*****************************************************************************/
 
 struct input_event;
 
-class GyroSensor : public SensorBase {
-	int mEnabled;
-	InputEventCircularReader mInputReader;
-	sensors_event_t mPendingEvent;
-	bool mHasPendingEvent;
-	char input_sysfs_path[PATH_MAX];
-	int input_sysfs_path_len;
-	int64_t mEnabledTime;
-
-	int setInitialState();
-
+class AkmSensor : public SensorBase {
 public:
-	GyroSensor();
-	GyroSensor(char *name);
-	GyroSensor(struct SensorContext *context);
-	virtual ~GyroSensor();
-	virtual int readEvents(sensors_event_t* data, int count);
-	virtual bool hasPendingEvents() const;
+	AkmSensor();
+	AkmSensor(char *name);
+	virtual ~AkmSensor();
+
+	enum {
+		Accelerometer	= 0,
+		MagneticField	= 1,
+		Orientation		= 2,
+		numSensors
+	};
+
 	virtual int setDelay(int32_t handle, int64_t ns);
 	virtual int enable(int32_t handle, int enabled);
+	virtual int readEvents(sensors_event_t* data, int count);
+	void processEvent(int code, int value);
+
+private:
+	int update_delay();
+	uint32_t mEnabled;
+	uint32_t mPendingMask;
+	InputEventCircularReader mInputReader;
+	sensors_event_t mPendingEvents[numSensors];
+	uint64_t mDelays[numSensors];
 };
 
 /*****************************************************************************/
 
-#endif  // ANDROID_GYRO_SENSOR_H
+#endif  // ANDROID_AKM_SENSOR_H
