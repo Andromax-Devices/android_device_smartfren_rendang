@@ -114,7 +114,7 @@ public:
     uint32_t mDumpSkipCnt;
 
     void cond_wait();
-    void cond_signal(bool forceExit = false);
+    void cond_signal();
 
 private:
     uint32_t mCamHandle;

@@ -697,8 +697,7 @@ int32_t QCameraPostProcessor::processData(mm_camera_super_buf_t *frame)
     if (m_parent->needReprocess()) {
         if (!m_parent->isLongshotEnabled() ||
             (m_parent->isLongshotEnabled() &&
-             (m_parent->isCaptureShutterEnabled() ||
-             m_parent->isLongshotSnapLimited()))) {
+             m_parent->isCaptureShutterEnabled())) {
             //play shutter sound
             m_parent->playShutter();
         }
@@ -1017,8 +1016,7 @@ int32_t QCameraPostProcessor::processPPData(mm_camera_super_buf_t *frame)
 #endif
     if (m_parent->isLongshotEnabled() &&
          !getMultipleStages() &&
-         !m_parent->isCaptureShutterEnabled() &&
-         !m_parent->isLongshotSnapLimited()) {
+         !m_parent->isCaptureShutterEnabled()) {
         m_parent->playShutter();
     }
 
@@ -2212,12 +2210,12 @@ void *QCameraPostProcessor::dataSaveRoutine(void *data)
                         ssize_t written_len = write(file_fd, job_data->out_data.buf_vaddr,
                                 job_data->out_data.buf_filled_len);
                         if ((ssize_t)job_data->out_data.buf_filled_len != written_len) {
-                            ALOGE("%s: Failed save complete data %zd bytes "
+                            ALOGE("%s: Failed save complete data %d bytes "
                                   "written instead of %d bytes!",
                                   __func__, written_len,
                                   job_data->out_data.buf_filled_len);
                         } else {
-                            CDBG_HIGH("%s: written number of bytes %zd\n",
+                            CDBG_HIGH("%s: written number of bytes %d\n",
                                 __func__, written_len);
                         }
 
