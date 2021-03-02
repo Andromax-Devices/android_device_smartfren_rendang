@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2014,2016 The Linux Foundataion. All rights reserved.
+/* Copyright (c) 2012-2014, The Linux Foundataion. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -196,8 +196,6 @@ public:
     static void * cbNotifyRoutine(void * data);
     static void releaseNotifications(void *data, void *user_data);
     static bool matchSnapshotNotifications(void *data, void *user_data);
-    static bool matchTimestampNotifications(void *data, void *user_data);
-    virtual int32_t flushVideoNotifications();
 private:
 
     camera_notify_callback         mNotifyCb;
@@ -443,7 +441,6 @@ private:
                 1 : mParameters.getNumOfSnapshots());
     };
     bool isLongshotEnabled() { return mLongshotEnabled; };
-    bool isLongshotSnapLimited() { return mParameters.isLongshotSnapsLimited(); };
     uint8_t getBufNumRequired(cam_stream_type_t stream_type);
     bool needFDMetadata(qcamera_ch_type_enum_t channel_type);
     bool removeSizeFromList(cam_dimension_t* size_list, size_t length,
@@ -529,6 +526,8 @@ private:
     uint32_t          mCameraId;
     mm_camera_vtbl_t *mCameraHandle;
     bool mCameraOpened;
+    // This flag will indicate whether camera is opened or not
+    static unsigned int mCameraSessionActive;
 
     preview_stream_ops_t *mPreviewWindow;
     QCameraParameters mParameters;
@@ -542,7 +541,6 @@ private:
     void                          *mCallbackCookie;
 
     QCameraStateMachine m_stateMachine;   // state machine
-    bool m_smThreadActive;
     QCameraPostProcessor m_postprocessor; // post processor
     QCameraThermalAdapter &m_thermalAdapter;
     QCameraCbNotifier m_cbNotifier;
@@ -667,7 +665,6 @@ private:
     bool TsMakeupProcess_Snapshot(mm_camera_buf_def_t *pFrame,QCameraStream * pStream);
     bool TsMakeupProcess(mm_camera_buf_def_t *frame,QCameraStream * stream,unsigned char *makeupOutBuf,TSRect& faceRect);
 #endif
-    QCameraVideoMemory *mVideoMem;
 };
 
 }; // namespace qcamera

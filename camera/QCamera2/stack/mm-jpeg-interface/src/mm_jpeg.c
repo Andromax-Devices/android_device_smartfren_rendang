@@ -44,6 +44,11 @@
 #include "mm_jpeg.h"
 #include "mm_jpeg_inlines.h"
 
+#ifdef LOAD_ADSP_RPC_LIB
+#include <dlfcn.h>
+#include <stdlib.h>
+#endif
+
 #define ENCODING_MODE_PARALLEL 1
 #define NUM_OMX_SESSIONS 1;
 
@@ -1741,6 +1746,15 @@ int32_t mm_jpeg_init(mm_jpeg_obj *my_obj)
     pthread_mutex_destroy(&my_obj->job_lock);
   }
 
+#ifdef LOAD_ADSP_RPC_LIB
+  my_obj->adsprpc_lib_handle = dlopen("libadsprpc.so", RTLD_NOW);
+  if (NULL == my_obj->adsprpc_lib_handle) {
+    CDBG_ERROR("%s:%d] Cannot load the library", __func__, __LINE__);
+    /* not returning error here bcoz even if this loading fails
+        we can go ahead with SW JPEG enc */
+  }
+#endif
+
   return rc;
 }
 
@@ -1840,48 +1854,6 @@ uint32_t mm_jpeg_new_client(mm_jpeg_obj *my_obj)
   return client_hdl;
 }
 
-/** mm_jpeg_check_resolution_change:
- *
- *  Arguments:
- *    @my_obj: jpeg object
- *    @work_bufs_need: work buffers needed
- *    @curr_width: currnet frame width
- *    @curr_height: currnet frame height
- *    @prev_width: previous frame width
- *    @prev_height: previous frame height
- *
- *  Return:
- *       0 for success else failure
- *
- *  Description:
- *       Check resolution change and deallocate internally
- *       allocated work buffers
- *
- **/
-static int32_t mm_jpeg_check_resolution_change(mm_jpeg_obj *my_obj,
-  uint32_t work_bufs_need,
-  int32_t curr_width,
-  int32_t curr_height,
-  int32_t prev_width,
-  int32_t prev_height)
-{
-  if (my_obj->work_buf_cnt > work_bufs_need) {
-    CDBG_ERROR("%s: %d] Unexpected work buffer count", __func__, __LINE__);
-    return -1;
-  }
-  if ((my_obj->work_buf_cnt == work_bufs_need) &&
-      ((curr_width * curr_height) != (prev_width * prev_height))) {
-    CDBG_HIGH("%s: %d] curr_width %d curr_height %d prev_width %d prev_height %d",
-      __func__, __LINE__, curr_width, curr_height, prev_width, prev_height);
-    /* resolution changed, release the previously allocated work buffer */
-    while (my_obj->work_buf_cnt) {
-      my_obj->work_buf_cnt--;
-      buffer_deallocate(&my_obj->ionBuffer[my_obj->work_buf_cnt]);
-    }
-  }
-  return 0;
-}
-
 /** mm_jpeg_start_job:
  *
  *  Arguments:
@@ -1955,42 +1927,39 @@ int32_t mm_jpeg_start_job(mm_jpeg_obj *my_obj,
 
   if (p_session->work_buffer.addr) {
     work_bufs_need--;
-    // check change in resolution for the buffers allocated
-    // on top of HAL work buffer
-    if (work_bufs_need) {
-      rc = mm_jpeg_check_resolution_change(my_obj, work_bufs_need,
-        curr_width, curr_height, prev_width, prev_height);
-      if (rc < 0) {
-        CDBG_HIGH("%s: %d] Resolution check failed!!",
-          __func__, __LINE__);
-        return rc;
-      }
+    /* release if there are any work buffers already allocated */
+    while (my_obj->work_buf_cnt) {
+      buffer_deallocate(&my_obj->ionBuffer[my_obj->work_buf_cnt]);
+      my_obj->work_buf_cnt--;
     }
-
-   CDBG_HIGH("%s:%d] HAL passed the work buffer of size = %d",
+    CDBG_HIGH("%s:%d] HAL passed the work buffer of size = %d; don't alloc internally",
       __func__, __LINE__, p_session->work_buffer.size);
-
-   CDBG_HIGH("%s:%d] Additional work buffers needed = %d",
-      __func__, __LINE__, work_bufs_need);
-
   } else {
     p_session->work_buffer = my_obj->ionBuffer[0];
 
     CDBG_HIGH("%s:%d] work_bufs_need %d work_buf_cnt %d", __func__, __LINE__,
       work_bufs_need, my_obj->work_buf_cnt);
 
-    rc = mm_jpeg_check_resolution_change(my_obj, work_bufs_need,
-      curr_width, curr_height, prev_width, prev_height);
-    if (rc < 0) {
-      CDBG_HIGH("%s: %d] Resolution check failed!!",
-        __func__, __LINE__);
+    if (my_obj->work_buf_cnt > work_bufs_need) {
+      CDBG_ERROR("%s: %d] Unexpected work buffer count", __func__, __LINE__);
       return rc;
     }
 
+    if ((my_obj->work_buf_cnt == work_bufs_need) &&
+        ((curr_width * curr_height) != (prev_width * prev_height))) {
+      CDBG_HIGH("%s: %d] curr_width %d curr_height %d prev_width %d prev_height %d",
+        __func__, __LINE__, curr_width, curr_height, prev_width, prev_height);
+      /* resolution changed, release the previously allocated work buffer */
+      while (my_obj->work_buf_cnt) {
+        buffer_deallocate(&my_obj->ionBuffer[my_obj->work_buf_cnt]);
+        my_obj->work_buf_cnt--;
+      }
+    }
+    my_obj->prev_w = curr_width;
+    my_obj->prev_h = curr_height;
+    work_buf_size = CEILING64(curr_width) *
+      CEILING64(curr_height) * 3 / 2;
   }
-  my_obj->prev_w = curr_width;
-  my_obj->prev_h = curr_height;
-  work_buf_size = CEILING64(curr_width) * CEILING64(curr_height) * 3 / 2;
 
   CDBG_HIGH("%s:%d] >>>> Work bufs need %d, %d", __func__, __LINE__,
     work_bufs_need, my_obj->work_buf_cnt);
@@ -2132,7 +2101,6 @@ static int32_t mm_jpeg_read_meta_keyfile(mm_jpeg_job_session_t *p_session,
 
   if (!p_session->meta_enc_key) {
     CDBG_ERROR("%s:%d] error", __func__, __LINE__);
-    fclose(fp);
     return -1;
   }
 
@@ -2596,6 +2564,13 @@ int32_t mm_jpeg_close(mm_jpeg_obj *my_obj, uint32_t client_hdl)
 
   CDBG("%s:%d] ", __func__, __LINE__);
 
+#ifdef LOAD_ADSP_RPC_LIB
+  if (NULL != my_obj->adsprpc_lib_handle) {
+    dlclose(my_obj->adsprpc_lib_handle);
+    my_obj->adsprpc_lib_handle = NULL;
+  }
+#endif
+
   pthread_mutex_unlock(&my_obj->job_lock);
   CDBG("%s:%d] ", __func__, __LINE__);
 
@@ -2608,9 +2583,9 @@ int32_t mm_jpeg_close(mm_jpeg_obj *my_obj, uint32_t client_hdl)
   return rc;
 }
 
-OMX_ERRORTYPE mm_jpeg_ebd(OMX_HANDLETYPE hComponent __unused,
+OMX_ERRORTYPE mm_jpeg_ebd(OMX_HANDLETYPE hComponent,
   OMX_PTR pAppData,
-  OMX_BUFFERHEADERTYPE *pBuffer __unused)
+  OMX_BUFFERHEADERTYPE *pBuffer)
 {
   mm_jpeg_job_session_t *p_session = (mm_jpeg_job_session_t *) pAppData;
 
@@ -2621,7 +2596,7 @@ OMX_ERRORTYPE mm_jpeg_ebd(OMX_HANDLETYPE hComponent __unused,
   return 0;
 }
 
-OMX_ERRORTYPE mm_jpeg_fbd(OMX_HANDLETYPE hComponent __unused,
+OMX_ERRORTYPE mm_jpeg_fbd(OMX_HANDLETYPE hComponent,
   OMX_PTR pAppData,
   OMX_BUFFERHEADERTYPE *pBuffer)
 {
@@ -2674,12 +2649,12 @@ OMX_ERRORTYPE mm_jpeg_fbd(OMX_HANDLETYPE hComponent __unused,
 
 
 
-OMX_ERRORTYPE mm_jpeg_event_handler(OMX_HANDLETYPE hComponent __unused,
+OMX_ERRORTYPE mm_jpeg_event_handler(OMX_HANDLETYPE hComponent,
   OMX_PTR pAppData,
   OMX_EVENTTYPE eEvent,
   OMX_U32 nData1,
   OMX_U32 nData2,
-  OMX_PTR pEventData __unused)
+  OMX_PTR pEventData)
 {
   mm_jpeg_job_session_t *p_session = (mm_jpeg_job_session_t *) pAppData;
 
