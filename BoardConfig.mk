@@ -29,7 +29,11 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916_X6_6171E
 
 # Camera
-BOARD_CAMERA_SENSORS := ov2680_5987fhq ov8865_q8v18a ov2680_skuhf
+BOARD_CAMERA_SENSORS := \
+    ov5670_q5v41b \
+    ov5648_q5v22e_rendang \
+    gc2355_rendang
+
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/bin/cameraserver=22 \
     /system/bin/mediaserver=22 \
