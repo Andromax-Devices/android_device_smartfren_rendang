@@ -1,1 +1,2 @@
 nosecure.akm.                     u:object_r:compass_prop:s0
+device_config.runtime_native_boot.   u:object_r:device_config_runtime_native_boot_prop:s0

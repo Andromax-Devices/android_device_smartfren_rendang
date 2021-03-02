@@ -1,0 +1,8 @@
+type hal_light_rendang, coredomain, domain;
+hal_server_domain(hal_light_rendang, hal_light)
+
+type hal_light_rendang_exec, exec_type, file_type;
+init_daemon_domain(hal_light_rendang)
+
+allow hal_light_rendang sysfs_white_led:file rw_file_perms;
+allow hal_light_rendang sysfs_white_led:dir search;
