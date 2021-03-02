@@ -24,8 +24,8 @@ vendor/lib/libbtnv.so|b4b692e2a89f97677d66cb26152cade106bb1cc4
 
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
-vendor/lib/libjpegdhw.so|e6fbda13a222eabec676ae8e0e1214810ccb7ab6
-vendor/lib/libjpegehw.so|17d0f41e191ae72b065ef70a092dd061185906f2
+vendor/lib/libjpegdhw.so
+vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
@@ -40,90 +40,56 @@ vendor/lib/libmmcamera2_stats_algorithm.so
 vendor/lib/libmmcamera2_stats_modules.so
 vendor/lib/libmmcamera2_vpe_module.so
 vendor/lib/libmmcamera2_wnr_module.so
-vendor/lib/libmmcamera_faceproc.so|ac49bcc1aa20ff9f2c118f6c233b658f93543202
-vendor/lib/libmmcamera_hdr_gb_lib.so|8b96bf8d4e6be4542d057c7922ac467e5856d1ba
-vendor/lib/libmmcamera_hdr_lib.so|68127cbc7c5aa417b9a440fb9e269ed4152864b4
-vendor/lib/libmmcamera_imglib.so|60d9a78a186a342d381747e11c9d824de9f1d6b9
+vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_hdr_gb_lib.so
+vendor/lib/libmmcamera_hdr_lib.so
+vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_pdaf.so
-vendor/lib/libmmcamera_tintless_algo.so|8b63827904bdbe1e99bf2e153ef41f5e925fea98
-vendor/lib/libmmcamera_tintless_bg_pca_algo.so|a54f8613581f08834028a38d7a2da70ffbf86ae6
-vendor/lib/libmmcamera_tuning.so
-vendor/lib/libmmcamera_wavelet_lib.so|76091fd9dfbefd06e108e0d129976d8dffd27fb1
-vendor/lib/libmmipl.so|8ba0f6611f8b7b1bdc05f47e7f708d2da826b32b
-vendor/lib/libmmjpeg.so|159dac7e57174dfd6fd2820499d5cef4b3f05112
-vendor/lib/libmmqjpeg_codec.so|716d4df63afba2a3c791e5f84ffe5da1fb96267e
+vendor/lib/libmmcamera_tintless_algo.so
+vendor/lib/libmmcamera_tintless_bg_pca_algo.so
+vendor/lib/libmmcamera_wavelet_lib.so
+vendor/lib/libmmipl.so
+vendor/lib/libmmjpeg.so
+vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
-vendor/lib/libqomx_jpegenc.so|ab7407926128697ab086a69f8834e1cf76932946
+vendor/lib/libqomx_jpegenc.so
 
 # Camera actuator
-vendor/lib/libactuator_dw9714_13p1ba_h2x_camcorder.so
-vendor/lib/libactuator_dw9714_13p1ba_h2x_camera.so
-vendor/lib/libactuator_dw9714_13p1ba_h2x.so
-vendor/lib/libactuator_dw9714_camcorder.so
-vendor/lib/libactuator_dw9714_camera.so
-vendor/lib/libactuator_dw9714.so
-vendor/lib/libactuator_dw9714_meituosi_h2x_camcorder.so
-vendor/lib/libactuator_dw9714_meituosi_h2x_camera.so
-vendor/lib/libactuator_dw9714_meituosi_h2x.so
-vendor/lib/libactuator_dw9714_sikao_h2x_camcorder.so
-vendor/lib/libactuator_dw9714_sikao_h2x_camera.so
-vendor/lib/libactuator_dw9714_sikao_h2x.so
-vendor/lib/libactuator_dw9718s_camcorder.so
-vendor/lib/libactuator_dw9718s_camera.so
-vendor/lib/libactuator_dw9718s.so
-vendor/lib/libactuator_rohm_bu64243gwz_camcorder.so
-vendor/lib/libactuator_rohm_bu64243gwz_camera.so
-vendor/lib/libactuator_rohm_bu64243gwz.so
-vendor/lib/libactuator_rohm_bu64243gwz_a11_camcorder.so
-vendor/lib/libactuator_rohm_bu64243gwz_a11_camera.so
-vendor/lib/libactuator_rohm_bu64243gwz_a11.so
-vendor/lib/libactuator_rohm_bu64243gwz_h2x_camcorder.so
-vendor/lib/libactuator_rohm_bu64243gwz_h2x_camera.so
-vendor/lib/libactuator_rohm_bu64243gwz_h2x.so
+vendor/lib/libactuator_dw9714_ov5648_rendang.so
+vendor/lib/libactuator_dw9714_ov5648_rendang_camcorder.so
+vendor/lib/libactuator_dw9714_ov5648_rendang_camera.so
+vendor/lib/libactuator_dw9714_ov5670_rendang.so
+vendor/lib/libactuator_dw9714_ov5670_rendang_camcorder.so
+vendor/lib/libactuator_dw9714_ov5670_rendang_camera.so
 
 # Camera chromatix
-vendor/lib/libchromatix_ov2680_common.so
-vendor/lib/libchromatix_ov2680_default_video.so
-vendor/lib/libchromatix_ov2680_snapshot.so
-vendor/lib/libchromatix_ov2680_5987fhq_common.so
-vendor/lib/libchromatix_ov2680_5987fhq_default_video.so
-vendor/lib/libchromatix_ov2680_5987fhq_snapshot.so
-vendor/lib/libchromatix_ov8865_q8v18a_common.so
-vendor/lib/libchromatix_ov8865_q8v18a_default_video.so
-vendor/lib/libchromatix_ov8865_q8v18a_hfr_120fps.so
-vendor/lib/libchromatix_ov8865_q8v18a_hfr_60fps.so
-vendor/lib/libchromatix_ov8865_q8v18a_hfr_90fps.so
-vendor/lib/libchromatix_ov8865_q8v18a_liveshot.so
-vendor/lib/libchromatix_ov8865_q8v18a_preview.so
-vendor/lib/libchromatix_ov8865_q8v18a_snapshot.so
-vendor/lib/libchromatix_ov8865_qtech_common.so
-vendor/lib/libchromatix_ov8865_qtech_default_video.so
-vendor/lib/libchromatix_ov8865_qtech_hfr_120fps.so
-vendor/lib/libchromatix_ov8865_qtech_hfr_60fps.so
-vendor/lib/libchromatix_ov8865_qtech_hfr_90fps.so
-vendor/lib/libchromatix_ov8865_qtech_liveshot.so
-vendor/lib/libchromatix_ov8865_qtech_preview.so
-vendor/lib/libchromatix_ov8865_qtech_snapshot.so
-vendor/lib/libchromatix_ov8865_sunny_common.so
-vendor/lib/libchromatix_ov8865_sunny_default_video.so
-vendor/lib/libchromatix_ov8865_sunny_hfr_120fps.so
-vendor/lib/libchromatix_ov8865_sunny_hfr_60fps.so
-vendor/lib/libchromatix_ov8865_sunny_hfr_90fps.so
-vendor/lib/libchromatix_ov8865_sunny_liveshot.so
-vendor/lib/libchromatix_ov8865_sunny_preview.so
-vendor/lib/libchromatix_ov8865_sunny_snapshot.so
-
-# Camera eeprom
-vendor/lib/libmmcamera_sunny_q8v18a_eeprom.so
+vendor/lib/libchromatix_gc2355_rendang_common.so
+vendor/lib/libchromatix_gc2355_rendang_preview.so
+vendor/lib/libchromatix_ov5648_q5v22e_rendang_common.so
+vendor/lib/libchromatix_ov5648_q5v22e_rendang_default_video.so
+vendor/lib/libchromatix_ov5648_q5v22e_rendang_default_video_hd.so
+vendor/lib/libchromatix_ov5648_q5v22e_rendang_preview.so
+vendor/lib/libchromatix_ov5648_q5v22e_rendang_snapshot.so
+vendor/lib/libchromatix_ov5648_q5v22e_rendang_zsl.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_common.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_default_video.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_hfr_120fps.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_hfr_60fps.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_hfr_90fps.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_liveshot.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_preview.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_snapshot.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_video_hd.so
+vendor/lib/libchromatix_ov5670_q5v41b_rendang_zsl.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
 
 # Camera sensors
-vendor/lib/libmmcamera_ov2680_5987fhq.so
-vendor/lib/libmmcamera_ov2680_skuhf.so
-vendor/lib/libmmcamera_ov8865_q8v18a.so
+vendor/lib/libmmcamera_gc2355_rendang.so
+vendor/lib/libmmcamera_ov5648_q5v22e_rendang.so
+vendor/lib/libmmcamera_ov5670_q5v41b.so
 
 # DRM - from jalebi
 bin/qseecomd:vendor/bin/qseecomd|8d12dbee4e86a7af7ff76a9ff64c339adce8eb36
@@ -249,9 +215,9 @@ vendor/lib/libimsmedia_jni.so|0464f3f1f72d16153618d6a7555c229fd14830c4
 bin/imscmservice:vendor/bin/imscmservice|2b6bb0cc2c244885556fe5c6ee75733b59ea1910
 bin/imsdatadaemon:vendor/bin/imsdatadaemon|30cb68236f5c8f6fe0d78f0e772a33405c5cf58b
 bin/imsqmidaemon:vendor/bin/imsqmidaemon|00c1cd071898fc7883b98b53c507d07e8b262e63
-etc/permissions/ims.xml:vendor/etc/permissions/ims.xml|b77963459ea6664a0eddcbc5ca7f4220e4895c26
-etc/permissions/imscm.xml:vendor/etc/permissions/imscm.xml|8b99ec26c783966bbea1fcb8e72c7c0206a4e802
-etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml|fd8a1db3c18b6d58334d747e47f4b155bb612039
+etc/permissions/ims.xml:vendor/etc/permissions/ims.xml|a76d37a496a26e60f861503891d56ced82af22a4
+etc/permissions/imscm.xml:vendor/etc/permissions/imscm.xml|0dff941fbbdff6e638ae27e319416407a31ef1d1
+etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml|600daa7b88014211b1893897d7e132ce1eea93f2
 -framework/imscmlibrary.jar:vendor/framework/imscmlibrary.jar|0c24d6540c06efede52169c1445272f43748180f
 vendor/lib/lib-dplmedia.so|93af0d85c31b197efdbde915ff8f7bc404243f87
 vendor/lib/lib-ims-rcscmjni.so|5be14cd7a69709f673297ab175cb011a6f2fd1a3
@@ -274,11 +240,6 @@ vendor/lib/lib-rtpsl.so|115c5dbec50e5d288552c3f35155e47404323395
 vendor/lib/lib-imsvt.so|6d9bc7654d48ab9f4315f43bcf62fc9f67f94ffd
 vendor/lib/librcc.so|a409377843c8c0af7f92beac09048927e36e7ca0
 vendor/lib/libvoice-svc.so|fe8d2807b5b1a35310a9bcf80ceb4467503130b0
-
-# Sensors
-vendor/lib/libcalmodule_akm.so
-vendor/lib/libcalmodule_yamaha.so
-vendor/lib/libcalmodule_gyroscope.so
 
 # Signed Venus (media) firmware
 etc/firmware/venus.b00:vendor/firmware/venus.b00

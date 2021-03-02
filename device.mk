@@ -118,7 +118,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     calmodule.cfg \
-    libcalmodule_common \
+    libcalmodule_memsic \
     sensors.msm8916 \
     sensors.rendang
 

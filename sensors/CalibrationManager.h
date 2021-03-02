@@ -40,7 +40,7 @@ using namespace android;
 
 /* Calibration library config files */
 #define CAL_LIB_CFG_PATH	"/system/vendor/etc/calmodule.cfg"
-#define DEFAULT_CAL_LIB		"libcalmodule_common.so"
+#define DEFAULT_CAL_LIB		"libcalmodule_memsic.so"
 #if defined(__LP64__)
 #define CAL_LIB_PATH	"/system/vendor/lib64/"
 #else
