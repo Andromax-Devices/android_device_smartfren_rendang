@@ -18,9 +18,7 @@
 $(call inherit-product, vendor/smartfren/rendang/rendang-vendor.mk)
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
