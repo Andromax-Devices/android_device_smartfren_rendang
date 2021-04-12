@@ -83,9 +83,6 @@ BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_CONFIG := lineageos_rendang_defconfig
 BOARD_KERNEL_CMDLINE += phy-msm-usb.floated_charger_enable=1 androidboot.selinux=permissive
 
-# Power
-TARGET_HAS_NO_POWER_STATS := true
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 BOARD_NO_SECURE_DISCARD := true
