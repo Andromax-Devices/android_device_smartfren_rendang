@@ -113,7 +113,8 @@ PRODUCT_PACKAGES += \
 
 # Sensor HAL
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-impl.rendang \
+    android.hardware.sensors@1.0-service.rendang \
     calmodule.cfg \
     libcalmodule_memsic \
     sensors.msm8916 \
