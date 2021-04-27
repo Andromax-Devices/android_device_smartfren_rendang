@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_rendang.mk
+    $(LOCAL_DIR)/nad_rendang.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_rendang-user \
-    lineage_rendang-userdebug \
-    lineage_rendang-eng
+    nad_rendang-user \
+    nad_rendang-userdebug \
+    nad_rendang-eng
