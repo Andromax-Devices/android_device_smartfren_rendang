@@ -83,7 +83,7 @@ BOARD_DTBTOOL_ARGS := -2
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_CONFIG := lineageos_rendang_defconfig
-BOARD_KERNEL_CMDLINE += phy-msm-usb.floated_charger_enable=1
+BOARD_KERNEL_CMDLINE += phy-msm-usb.floated_charger_enable=1 androidboot.selinux=permissive
 
 # Power
 TARGET_HAS_NO_POWER_STATS := true
