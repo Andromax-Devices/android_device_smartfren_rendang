@@ -62,6 +62,11 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     camera.device@1.0-impl
 
+# Filesystem tools
+PRODUCT_PACKAGES += \
+    e2fsck_static \
+    resize2fs_static
+
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
     fs_config_files
